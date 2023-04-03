@@ -1,0 +1,70 @@
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <!-- stylesheets -->
+       <link rel="stylesheet" href="index.css">
+       <!-- google fonts -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+       <meta charset="utf-8">
+    </head>
+    <body>
+        <header>
+            <h1 class="title">Maizy and Bloo's Cat Toys</h1>
+            <h2 class="subtitle">Ensured to enrich and entertain!</h2>
+        </header>
+        <main>
+            <div id="menu-container">
+                <!-- render menu items here -->
+            </div>
+            <div id="order-container" class="hidden">
+                <p class="order-title">Your Order</p>
+                    <div id="inner-order-container">
+                        <!-- render order items here -->
+                    </div>
+                    <hr id="order-hr">
+                    <div class="total-container">
+                        <p class="total-price">Total Price:</p>
+                        <p id="order-sum" class="order-sum"></p>
+                    </div>
+                    <button id="order-btn" class="order-btn">Complete Order</button>
+            </div>
+            
+            <!-- pay modal form -->
+            <div id="pay-modal" class="hidden">
+                <form id="pay-form">
+                    <p class="form-title">Enter card details</p>
+                    <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                        >
+                    <input
+                        type="numeric"
+                        id="card-number"
+                        name="card-number"
+                        placeholder="Enter card number"
+                        required
+                    >
+                    <input
+                        type="numeric"
+                        id="cvv"
+                        name="cvv"
+                        placeholder="Enter CVV"
+                        required
+                    >
+                    <button type="submit" class="pay-btn">Pay</button>
+                </form>
+            </div>
+            <div class="outer-message">
+                <div id="thanks-message" class="hidden"></div>
+            </div>
+        </main>
+	<script src="index.js" type="module"></script>
+    </body>
+</html>
