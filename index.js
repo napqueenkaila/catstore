@@ -7,17 +7,18 @@ payForm.addEventListener("submit", function(e){
     e.preventDefault()
 })
 
-
-
-document.addEventListener("click", function(e){
+document.addEventListener("click", function (e) {
     if(e.target.dataset.add){
        handleAddItemBtn(e.target.dataset.add)
     } else if(e.target.dataset.remove){
         handleRemoveItemBtn(e.target.dataset.remove)
     } else if(e.target.className === "order-btn"){
         handleCompleteOrderBtn()
-    } else if(e.target.className === "pay-btn")
+    } else if (e.target.className === "pay-btn") {
         handlePayBtn() 
+    } else if (e.target.className === "return-to-cart") {
+        handleReturntoCart()
+    }
 })
 
 function handleAddItemBtn(itemId){
@@ -48,7 +49,15 @@ function handlePayBtn(e){
     const thanksMessage = document.getElementById("thanks-message")
     thanksMessage.classList.remove("hidden")
     thanksMessage.innerHTML = `
-        <p>Thanks, ${name}! Your order is on its way!</p>`
+        <p>Thanks, ${name}! Your order is on its way!</p>
+        <p>You will be returned to the store.</p>`
+    setTimeout(() => {
+        thanksMessage.classList.add("hidden")
+    }, 5000);
+}
+
+function handleReturntoCart() {
+    document.getElementById("pay-modal").classList.add("hidden")
 }
 
 
@@ -95,11 +104,11 @@ function getMenuHtml(){
     menuArray.forEach(function(item){
         menuHtml += `
         <div class="item-container">
+            <i class="item-emoji">${item.emoji}</i>
             <div class="item-info">
-                <i class="item-emoji">${item.emoji}</i>
                 <div class="item-text-container">
                     <h3 class="item-name">${item.name}</h3>
-                    <p class="item-ingredients">${item.ingredients}</p>
+                    <p class="item-description">${item.description}</p>
                     <p class="item-price">$${item.price}</p>
                 </div>
             </div>
